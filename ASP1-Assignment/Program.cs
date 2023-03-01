@@ -1,6 +1,28 @@
-var builder = WebApplication.CreateBuilder(args);
+using ASP1_Assignment.Contexts;
+using ASP1_Assignment.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
-builder.Services.AddControllersWithViews();
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllersWithViews(); // behöver denna ligga under dep.inj.
+
+builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<UserService>();
+//builder.Services.AddScoped<ProductService>(); // Ej gjord än
+//builder.Services.AddScoped<ContactService>(); // Ej gjord än
+
+builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("IdentitySql")));
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(x =>
+{
+    x.Password.RequiredLength = 8;
+    x.User.RequireUniqueEmail = true;
+    x.SignIn.RequireConfirmedAccount = false;
+}).AddEntityFrameworkStores<IdentityContext>();
+builder.Services.ConfigureApplicationCookie(x =>
+{
+    x.LoginPath = "/Account/SignIn";
+    x.AccessDeniedPath = "/Errors/AccessDenied";
+});
 
 var app = builder.Build();
 
