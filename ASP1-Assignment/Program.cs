@@ -1,4 +1,5 @@
 using ASP1_Assignment.Contexts;
+using ASP1_Assignment.Models.Identity;
 using ASP1_Assignment.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -11,8 +12,8 @@ builder.Services.AddScoped<UserService>();
 //builder.Services.AddScoped<ProductService>(); // Ej gjord än
 //builder.Services.AddScoped<ContactService>(); // Ej gjord än
 
-builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("IdentitySql")));
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(x =>
+builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Sql")));
+builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
 {
     x.Password.RequiredLength = 8;
     x.User.RequireUniqueEmail = true;
@@ -20,8 +21,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(x =>
 }).AddEntityFrameworkStores<IdentityContext>();
 builder.Services.ConfigureApplicationCookie(x =>
 {
-    x.LoginPath = "/Account/SignIn";
-    x.AccessDeniedPath = "/Errors/AccessDenied";
+    x.LoginPath = "/login";
 });
 
 var app = builder.Build();

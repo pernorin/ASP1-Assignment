@@ -1,4 +1,5 @@
 ﻿using ASP1_Assignment.Models.Forms;
+using ASP1_Assignment.Models.Identity;
 using ASP1_Assignment.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,9 +11,9 @@ namespace ASP1_Assignment.Controllers
     public class RegisterController : Controller
     {
         private readonly AuthService _auth;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<AppUser> _userManager;
 
-        public RegisterController(AuthService auth, UserManager<IdentityUser> userManager)
+        public RegisterController(AuthService auth, UserManager<AppUser> userManager)
         {
             _auth = auth;
             _userManager = userManager;

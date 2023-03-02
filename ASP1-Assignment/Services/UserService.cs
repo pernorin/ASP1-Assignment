@@ -8,12 +8,12 @@ namespace ASP1_Assignment.Services
 {
     public class UserService
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<AppUser> _userManager;
         private readonly IdentityContext _identityContext;
 
         
 
-        public UserService(UserManager<IdentityUser> userManager, IdentityContext identityContext)
+        public UserService(UserManager<AppUser> userManager, IdentityContext identityContext)
         {
             _userManager = userManager;
             _identityContext = identityContext;
@@ -24,22 +24,17 @@ namespace ASP1_Assignment.Services
             var identityUser = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == id);
             if (identityUser != null) 
             {
-                var identityProfile = await _identityContext.UserProfiles.FirstOrDefaultAsync(x => x.UserId == identityUser.Id);
-                if (identityProfile != null)
+                return new UserAccount
                 {
-                    return new UserAccount
-                    {
-                        Id = identityUser.Id,
-                        FirstName = identityProfile.FirstName,
-                        LastName = identityProfile.LastName,
-                        Email = identityUser.Email!,
-                        PhoneNumber = identityUser.PhoneNumber,
-                        StreetName = identityProfile.StreetName,
-                        City = identityProfile.City,
-                        PostalCode = identityProfile.PostalCode,
-                        Company = identityProfile.Company,
-                    };
-                }
+                    Id = identityUser.Id,
+                    FirstName = identityUser.FirstName,
+                    LastName = identityUser.LastName,
+                    Email = identityUser.Email!,
+                    StreetName = identityUser.StreetName,
+                    PhoneNumber = identityUser.PhoneNumber,
+                    PostalCode = identityUser.PostalCode,
+                    City = identityUser.City
+                };
             }
             return null!;
         }
