@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllersWithViews(); // behöver denna ligga under dep.inj.
+builder.Services.AddControllersWithViews(); // behöver denna ligga under dep.inj.?
 
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<UserService>();

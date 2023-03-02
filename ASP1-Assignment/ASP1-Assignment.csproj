@@ -8,8 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
     <Folder Include="ViewModels\" />
-    <Folder Include="Views\Shared\Partials\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\logo.svg" />
   </ItemGroup>
 
   <ItemGroup>

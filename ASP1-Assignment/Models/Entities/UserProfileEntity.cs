@@ -1,6 +1,6 @@
 ﻿namespace ASP1_Assignment.Models.Entities
 {
-    public class UserProfileEntity // heter IdentityUserProfile i videon
+    public class UserProfileEntity // heter IdentityUserProfile i videon  Ska den ärva från IdentityUser
     {
         public Guid Id { get; set; } = Guid.NewGuid();
 
