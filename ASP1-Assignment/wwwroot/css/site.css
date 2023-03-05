@@ -10,7 +10,8 @@ h2,
 h3,
 p,
 button,
-#bmerketo {
+#bmerketo,
+#logo{
     font-family: "Poppins", sans-serif !important;
     color: #292929 !important;
 }

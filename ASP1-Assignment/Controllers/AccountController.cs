@@ -1,4 +1,6 @@
-﻿using ASP1_Assignment.Services;
+﻿using ASP1_Assignment.Models.Identity;
+using ASP1_Assignment.Services;
+using ASP1_Assignment.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,10 +17,18 @@ namespace ASP1_Assignment.Controllers
         }
 
 
-        public async Task<IActionResult> Index(string id)
-        {
-            var userAccount = await _userService.GetUserAccountAsync(id);
-            return View(userAccount);
-        }
-    }
+		public async Task<IActionResult> Index(string id)
+		{
+			UserAccount userAccount = await _userService.GetUserAccountAsync(id);
+			return View(userAccount);
+		}
+
+		//public async Task<IActionResult> Index()
+		//{
+		//	var viewModel = new AccountViewModel();
+
+
+		//	return View(viewModel);
+		//}
+	}
 }

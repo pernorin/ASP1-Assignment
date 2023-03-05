@@ -5,21 +5,21 @@
 
 <header>
     <div class="container d-flex justify-content-between">
-        <a href="#">
-            <img src="~/Images/logo.svg" alt="logo">            
+        <a asp-controller="Home" asp-action="Index">
+            <img id="logo" src="~/Images/logo.svg" alt="logo">            
         </a>
 
 
-        @*ta bort//////////////////////////*@
+        @*
         @if (SignInManager.IsSignedIn(User))
         {
             <span>@User.Identity!.Name</span>
         }
-        @*/////////////////////////ta bort*@
+        *@
 
         <div class="d-flex">
             <nav class="nav">
-                <a class="nav-link" href="">HOME</a>
+                <a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a>
                 <a class="nav-link" href="">PRODUCTS</a>
                 <a class="nav-link" href="">CONTACT</a>
             </nav>
