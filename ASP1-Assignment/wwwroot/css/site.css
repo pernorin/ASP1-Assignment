@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600;700&family=Roboto&display=swap");
+
+.full-screen-height {
+    min-height: calc(100vh - 176px);
+}
+
+a,
+h1,
+h2,
+h3,
+p,
+button,
+#bmerketo {
+    font-family: "Poppins", sans-serif !important;
+    color: #292929 !important;
+}
+
+    button:hover {
+        background-color: #f2062a !important;
+    }
+
+.text-primary {
+    color: #fa3150 !important;
+}
+
+.text-disabled {
+    color: #aeaeae !important;
+}
+
+.text-light {
+    color: #636363 !important;
+}
+
+.bg-light-grey {
+    background-color: #f3f2f2;
+}
+
+.bg-primary-color {
+    background-color: #fa3150;
+    color: white !important;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.extra-letter-space {
+    letter-spacing: 6px;
+}
+
+.card {
+    border: none;
+    border-radius: 0;
+}
+
+    .card i {
+        font-size: 1.5rem;
+        opacity: 0;
+        transition: ease-in 0.2s;
+    }
+
+    .card:hover i {
+        opacity: 1;
+    }
+
+    .card h3 {
+        font-size: 1.125rem;
+        font-weight: 500;
+    }
+
+.card-img-top {
+    border-radius: 0;
+}
+
+header a {
+    text-decoration: none;
+}
+
+footer {
+    background-color: #292929;
+}
+
+.hero-section h1 {
+    font-weight: 400;
+    font-size: 1.125rem;
+}
+
+.hero-section h2 {
+    font-weight: 700;
+    font-size: 3.75rem;
+}
+
+.collection-section h2 {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.collection-section .category-span {
+    font-family: "Roboto", sans-serif;
+}
+
+.collection-section span + .category-span::before {
+    content: "/";
+    margin: 8px;
+}
+
+.collection-section button {
+    border: solid 1px #292929;
+}
+
+    .collection-section button:hover {
+        background-color: white !important;
+        border-color: #292929;
+    }
+
+.offer-section {
+    background-color: #faefef;
+}
+
+    .offer-section .card img {
+        width: auto;
+        height: 310px;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+
+    .offer-section .card h2 {
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    .offer-section .card .text1 {
+        color: #fa3150 !important;
+        font-size: 1.125rem;
+        font-weight: 700;
+    }
+
+    .offer-section .card .text2 {
+        font-family: "Playfair Display", serif !important;
+        font-weight: 700;
+        font-size: 3rem;
+    }
+
+.top-selling-section h2 {
+    font-size: 1.875rem;
+    font-weight: 600;
+}
+
+.top-selling-section button {
+    background-color: white;
+    padding: 0.2rem 0.6rem;
+    font-size: 1.125rem;
+    transition: ease-out 0.2s;
+}
+
+    .top-selling-section button:hover {
+        background-color: white !important;
+    }
+
+    .top-selling-section button:active {
+        background-color: #f3f2f2 !important;
+    }
+
+.top-selling-section .container img {
+    width: auto;
+    height: 295px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.top-selling-section .container h3 {
+    font-size: 1.25rem;
+}
+
+.top-selling-section .container .card-text {
+    font-family: "Roboto", sans-serif !important;
+}
+
+.top-selling-section .container span {
+    font-size: 0.75rem;
+}
+
+.subscribe-section {
+    background-color: #636363;
+}
+
+    .subscribe-section .container {
+        background-color: white;
+    }
+
+    .subscribe-section input {
+        margin: 20px 0 20px 20px;
+        border-radius: 48px 0 0 48px;
+    }
+
+    .subscribe-section button {
+        margin: 20px 20px 20px 0;
+        border-radius: 48px;
+    }
+
+.account-form {
+    margin: 96px 0 !important;
+}
+
+    .account-form label,
+    .account-form h1 {
+        font-family: "Roboto", sans-serif;
+        color: #636363 !important;
+        font-size: 1rem;
+        font-weight: normal;
+        letter-spacing: 1px;
+    }
+
+    .account-form .text-small {
+        font-size: 0.875rem;
+    }
+
+    .account-form h1::after {
+        content: "";
+        border: #aeaeae 2px solid;
+        display: block;
+        width: 4.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .account-form .required::after {
+        content: "*";
+    }
+.account-form a{
+    text-decoration: none;
+}

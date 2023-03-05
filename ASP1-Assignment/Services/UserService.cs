@@ -19,8 +19,11 @@ namespace ASP1_Assignment.Services
             _identityContext = identityContext;
         }
 
+        
         public async Task<UserAccount> GetUserAccountAsync(string id)  // 3:21
         {
+           
+
             var identityUser = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == id);
             if (identityUser != null) 
             {

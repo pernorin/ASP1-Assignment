@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews(); // behöver denna ligga under dep.inj
 
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<UserService>();
-//builder.Services.AddScoped<ProductService>(); // Ej gjord än
+builder.Services.AddScoped<ProductService>(); // Ej gjord än
 //builder.Services.AddScoped<ContactService>(); // Ej gjord än
 
 builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Sql")));

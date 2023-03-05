@@ -13,12 +13,12 @@ namespace ASP1_Assignment.Services
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly IdentityContext _identityContext;
+        //private readonly IdentityContext _identityContext;
 
-        public AuthService(UserManager<AppUser> userManager, IdentityContext identityContext, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
+        public AuthService(UserManager<AppUser> userManager, /*IdentityContext identityContext,*/ SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
-            _identityContext = identityContext;
+            //_identityContext = identityContext;
             _signInManager = signInManager;
             _roleManager = roleManager;
         }
@@ -67,6 +67,11 @@ namespace ASP1_Assignment.Services
             var result = await _signInManager.PasswordSignInAsync(form.Email, form.Password, keepLoggedIn, false);
             return result.Succeeded;
             
+        }
+
+        public async Task LogoutAsync()
+        {
+            await _signInManager.SignOutAsync();
         }
     }
 }

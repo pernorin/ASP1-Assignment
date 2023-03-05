@@ -1,16 +1,47 @@
-﻿<header>
+﻿@using ASP1_Assignment.Models.Identity;
+@using Microsoft.AspNetCore.Identity;
+
+@inject SignInManager<AppUser> SignInManager
+
+<header>
     <div class="container d-flex justify-content-between">
         <a href="#">
-            <img src="~/Images/logo.svg" alt="logo">
-            <span>bmerketo</span>
+            <img src="~/Images/logo.svg" alt="logo">            
         </a>
-        <nav class="nav">
-            <a class="nav-link" href="">HOME</a>
-            <a class="nav-link" href="">PRODUCTS</a>
-            <a class="nav-link" href="">CONTACT</a>
-            <a class="nav-link" href="">Login</a>
 
-        </nav>
+
+        @*ta bort//////////////////////////*@
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <span>@User.Identity!.Name</span>
+        }
+        @*/////////////////////////ta bort*@
+
+        <div class="d-flex">
+            <nav class="nav">
+                <a class="nav-link" href="">HOME</a>
+                <a class="nav-link" href="">PRODUCTS</a>
+                <a class="nav-link" href="">CONTACT</a>
+            </nav>
+            <i class="bi bi-search text-disabled m-2"></i>
+
+
+            @if (SignInManager.IsSignedIn(User))
+            {
+
+                <a asp-controller="Login" asp-action="Logout" class="text-disabled m-2">Logout</a>
+            }
+            else
+            {
+
+                <a asp-controller="Login" asp-action="Index" class="text-disabled m-2">Login</a>
+            }
+
+
+            <i class="bi bi-cart3 m-2 text-disabled"></i>
+        </div>
+
+        
     </div>
 </header>                    
 

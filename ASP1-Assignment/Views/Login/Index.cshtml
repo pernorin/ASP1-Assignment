@@ -1,28 +1,32 @@
 ﻿@model ASP1_Assignment.Models.Forms.LoginForm
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout_CenterScreen.cshtml";
 }
 
-<section>
-    <div>
-        <h1>Log in to your account.</h1>
-    </div>
-    <form asp-action="Index" method="post" asp-route-ReturnUrl="@Model.ReturnUrl">
-        <div class="form-group">
-            <div class="form-label">
-                <label asp-for="Email" class="control-label">Email *</label> @* kanske ersätta * med ::after och ta bort texten innuti taggen helt *@
-                <a asp-controller="Register" asp-action="Index">Don't have an Account yet?</a>
-            </div>
+
+    <form asp-action="Index" method="post" asp-route-ReturnUrl="@Model.ReturnUrl"  class="row g-3 shadow-sm account-form p-4">
+        <h1>Please Login to Your Account</h1>
+        <div class="col-12">
+            <label asp-for="Email" class="form-label required">@Html.DisplayNameFor(m => m.Email)</label>             
+            <a asp-controller="Register" asp-action="Index" class="text-small text-primary ms-4">Don't have an Account yet?</a>
             <input asp-for="Email" class="form-control" />
-        </div>
-        <div class="form-group">
-            <div class="form-label d-flex justify-content-between">
-                <label asp-for="Password" class="control-label">Password *</label>
-                <a asp-controller="Forgot" asp-action="Index">Forgot your password?</a>
-            </div>
+		</div>
+		<div class="col-12">
+            <label asp-for="Password" class="form-label required">@Html.DisplayNameFor(m => m.Password)</label>            
+            <a asp-controller="Forgot" asp-action="Index" class="text-small text-primary float-end">Forgot your password?</a>
             <input asp-for="Password" class="form-control" />
-        </div>
+		</div>
+		<div class="col-6 my-5">
+            <input asp-for="KeepLoggedIn" type="checkbox" class="d-inline-block" />
+            <label asp-for="KeepLoggedIn" class="text-small">
+                @Html.DisplayNameFor(m => m.KeepLoggedIn)
+            </label>
+		</div>
+		<div class="col-12 mt-3">
+            <button type="submit" class="btn bg-primary-color py-2 px-4">Submit</button>
+		</div>
+
+
     </form>
-</section>

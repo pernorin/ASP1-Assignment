@@ -1,5 +1,78 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model ASP1_Assignment.Models.Forms.RegisterForm
+
 @{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout_CenterScreen.cshtml";
 }
+
+
+    
+    <form asp-action="Index" method="post" asp-route-ReturnUrl="@Model.ReturnUrl" class="row g-3 shadow-sm account-form p-4">
+        <h1>Please Register Your New Account</h1>
+
+    <div class="col-md-6">
+        <label asp-for="FirstName" class="form-label required">@Html.DisplayNameFor(m => m.FirstName)</label>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="LastName" class="form-label required">@Html.DisplayNameFor(m => m.LastName)</label>
+        <input asp-for="LastName" class="form-control" />
+    </div>
+
+    <div class="col-12">
+        <label asp-for="StreetName" class="form-label required">@Html.DisplayNameFor(m => m.StreetName)</label>
+        <input asp-for="StreetName" class="form-control" />
+    </div>
+        
+    <div class="col-md-6">
+        <label asp-for="PostalCode" class="form-label required">@Html.DisplayNameFor(m => m.PostalCode)</label>
+        <input asp-for="PostalCode" class="form-control" />
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="City" class="form-label required">@Html.DisplayNameFor(m => m.City)</label>
+        <input asp-for="City" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label asp-for="PhoneNumber" class="form-label">@Html.DisplayNameFor(m => m.PhoneNumber)</label>
+        <input asp-for="PhoneNumber" class="form-control" />
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Company" class="form-label">@Html.DisplayNameFor(m => m.Company)</label>
+        <input asp-for="Company" class="form-control" />
+    </div>
+    
+    <div class="col-12">
+        <label asp-for="Email" class="form-label required">@Html.DisplayNameFor(m => m.Email)</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    
+    <div class="col-12">
+        <label asp-for="Password" class="form-label required">@Html.DisplayNameFor(m => m.Password)</label>
+        <input asp-for="Password" class="form-control" />
+    </div>
+
+    <div class="col-12">
+        <label asp-for="ConfirmPassword" class="form-label required">@Html.DisplayNameFor(m => m.ConfirmPassword)</label>
+        <input asp-for="ConfirmPassword" class="form-control" />
+    </div>
+
+@*
+    <div class="col-12">
+        <label for="profileImage" class="form-label">Upload Profile Image (optional)</label>
+        <input type="file" class="form-control" id="profileImage" />
+    </div>
+*@
+
+    <div class="col-6 my-5">
+        <input type="checkbox" id="terms" class="d-inline-block" />
+        <label for="terms" class="text-small">I have read and accepts the terms and agreements</label>
+    </div>
+    <div class="col-12 mt-3">
+        <button type="submit" class="btn bg-primary-color py-2 px-4">Submit</button>
+    </div>
+
+         
+    </form>

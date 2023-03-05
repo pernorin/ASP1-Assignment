@@ -30,9 +30,16 @@ namespace ASP1_Assignment.Controllers
                 }
 
                 // i 10:an ligger errormeddelandet här
+
             }
             ModelState.AddModelError(string.Empty, "Incorrect email or password");
             return View(loginForm);
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await _auth.LogoutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

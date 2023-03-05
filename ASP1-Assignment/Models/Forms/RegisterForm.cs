@@ -41,10 +41,10 @@ namespace ASP1_Assignment.Models.Forms
         public string ConfirmPassword { get; set; } = null!;
 
         [DataType(DataType.PhoneNumber)]
-        [Display(Name = "Phone Number")]
+        [Display(Name = "Phone Number (optional)")]
         public string? PhoneNumber { get; set; }
 
-        [Display(Name = "Company")]
+        [Display(Name = "Company (optional)")]
         public string? Company { get; set; }
         public string? ReturnUrl { get; set; }
     }

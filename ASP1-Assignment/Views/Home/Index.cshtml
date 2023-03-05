@@ -1,3 +1,118 @@
-﻿@{
+﻿@using ASP1_Assignment.Models;
+@model HomeViewModel
+@{
     ViewData["Title"] = "Home";
+
 }
+
+<section class="bg-light-grey hero-section">
+	<div class="container py-5">
+		<div class="row d-flex align-items-center gap-5">
+			<div class="col">
+				<h1 class="extra-letter-space">@Model.Hero.Title_1</h1>
+				<h2 class="my-5">@Model.Hero.Title_2</h2>
+				<button class="btn bg-primary-color extra-letter-space px-4 py-3">
+					SHOP NOW
+				</button>
+			</div>
+			<div class="col">
+				<img src="~/Images/chair.jpg" alt="chair">				
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="collection-section">
+	<div class="container text-center my-5">
+		<h2 class="mb-4">Best Collection</h2>
+		<span class="category-span">All</span>
+		<span class="category-span">Bags</span>
+		<span class="category-span">Dress</span>
+		<span class="category-span">Decoration</span>
+		<span class="category-span">Essentials</span>
+		<span class="category-span">Interior</span>
+		<span class="category-span">Laptop</span>
+		<span class="category-span">Mobile</span>
+		<span class="category-span">Beauty</span>
+		<div class="row row-cols-1 row-cols-md-4 g-4 my-4">
+
+			@if (Model.Products != null)
+			{
+				
+				foreach (ProductModel product in Model.Products.Take(8))
+				{
+					<partial name="~/Views/Shared/Partials/_ProductCardPartial.cshtml" model=product />					
+				}
+			}
+			else
+			{
+				<div>Fail!</div>
+			}
+
+
+		</div>
+		<button class="btn px-5 py-2">
+			Load More <i class="bi bi-arrow-clockwise"></i>
+		</button>
+	</div>
+</section>
+
+<section class="offer-section py-5">
+	<div class="container my-5">
+		<div class="row row-cols-1 row-cols-md-3 g-4 my-4">
+
+			<partial name="~/Views/Shared/Partials/_ProductCardPartial.cshtml" model=@Model.Products!.ElementAt(1) />
+
+			<div class="col">
+				<div class="card text-center h-100 py-5 px-4">
+					<p class="text1">@Model.Offer.Text1</p>
+					<p class="text2">@Model.Offer.Text2</p>
+					<h2 class="py-2">@Model.Offer.Headline</h2>
+					<p>
+						@Model.Offer.BodyText
+					</p>
+					<a href="#">@Model.Offer.LinkText</a>
+				</div>
+			</div>
+
+			<partial name="~/Views/Shared/Partials/_ProductCardPartial.cshtml" model=@Model.Products!.ElementAt(5) />
+
+		</div>
+	</div>
+</section>
+
+<section class="top-selling-section text-center p-5">
+	<h2>Top selling products this week</h2>
+	<div class="row row-cols-1 row-cols-md-6 g-4 m-5">
+		@if (Model.Products != null)
+		{
+			foreach (ProductModel product in Model.Products.Take(6))
+			{
+				<partial name="~/Views/Shared/Partials/_ProductCardPartial.cshtml" model=product />
+			}
+		}
+		else
+		{
+			<div>Fail!</div>
+		}
+	</div>
+	<button>&#60;</button>
+	<button>&#62;</button>
+
+	<div class="container">
+		<div class="row row-cols-1 row-cols-md-3 g-4 my-4">
+
+			@if (Model.Products != null)
+			{
+				foreach (ProductModel product in Model.Products.Take(3))
+				{
+					<partial name="~/Views/Shared/Partials/_ProductCardPartial.cshtml" model=product />
+				}
+			}
+			else
+			{
+				<div>Fail!</div>
+			}
+		</div>
+	</div>
+</section>
